@@ -36,15 +36,17 @@ export default function Home() {
 
  
   // Assuring the user sessions-------------------------------
-  if (!user) {
-    router.push("/signUp");
-  }
+  useEffect(() => {
+    if (!user) {
+      router.push("/signUp");
+    }
+  }, [])
+  
+  
 
   // logout functionality-------------------------------------
   const handleLogOut = () => {
     signOut(auth);
-    sessionStorage.removeItem("user");
-    router.push('/signUp')
   };
 
 
