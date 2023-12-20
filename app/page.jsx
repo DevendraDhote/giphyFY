@@ -36,17 +36,14 @@ export default function Home() {
 
  
   // Assuring the user sessions-------------------------------
-  useEffect(() => {
-    if (!user) {
-      router.push("/signUp");
-    }
-  }, [])
-  
-  
+  if (!user) {
+    router.push("/signUp");
+  }
 
   // logout functionality-------------------------------------
   const handleLogOut = () => {
     signOut(auth);
+    router.push('/signUp')
   };
 
 
