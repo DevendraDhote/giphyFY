@@ -11,7 +11,7 @@ import { Pagination } from "@/components/pagination/Pagination";
 export default function Home() {
   const [user] = useAuthState(auth);
   const router = useRouter();
-  const userSession = sessionStorage.getItem("user");
+  // const userSession = sessionStorage?.getItem("user");
 
   const [data, setData] = useState(null);
   const [query, setQuery] = useState("");
@@ -36,7 +36,7 @@ export default function Home() {
 
  
   // Assuring the user sessions-------------------------------
-  if (!user && !userSession) {
+  if (!user) {
     router.push("/signUp");
   }
 
@@ -69,7 +69,6 @@ export default function Home() {
               className="w-full px-4 py-2 text-slate-800 rounded bg-slate-100 focus:outline-none focus:border-blue-500"
             />
             <button
-              onClick={handleSearch}
               className="absolute right-0 top-0 p-2 bg-slate-800 text-slate-100 rounded h-10 w-20"
             >
               Search
