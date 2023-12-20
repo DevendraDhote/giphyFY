@@ -20,6 +20,7 @@ export default function Home() {
   const [total, setTotal] = useState(100);
   const [load, setLoad] = useState(true);
 
+// calling the giphy api----------------------------------
   useEffect(() => {
     const getData = async () => {
       const querry = await fetch(
@@ -33,20 +34,19 @@ export default function Home() {
     getData();
   }, [query]);
 
-  console.log({ user });
-  console.log(name);
-
+ 
+  // Assuring the user sessions-------------------------------
   if (!user && !userSession) {
     router.push("/signUp");
   }
 
+  // logout functionality-------------------------------------
   const handleLogOut = () => {
     signOut(auth);
     sessionStorage.removeItem("user");
     router.push('/signUp')
   };
 
-  const handleSearch = () => {};
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
